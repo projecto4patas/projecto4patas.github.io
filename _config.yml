@@ -8,7 +8,6 @@ author: "Projecto 4 Patas"
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
 
 # GitHub Pages settings
 plugins:
