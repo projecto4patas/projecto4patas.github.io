@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      
+      {% if page.author %}
+      <span class="post-author">by {{ page.author }}</span>
+      {% endif %}
+      
+      {% if page.categories %}
+      <span class="post-categories">
+        {% for category in page.categories %}
+          <span class="category">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+      
+      <span class="reading-time" id="reading-time"></span>
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <div class="post-tags">
+    <span class="tags-label">Tags:</span>
+    {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+
+{% if page.author %}
+<section class="author-bio">
+  <h3>About the Author</h3>
+  <div class="author-info">
+    <p>{{ page.author }} is a researcher and academic writer passionate about scholarly communication and research methodologies.</p>
+  </div>
+</section>
+{% endif %}
+
+{% if page.show_comments %}
+<section class="comments">
+  {% include comments.html %}
+</section>
+{% endif %}
+
+<nav class="post-navigation">
+  {% if page.previous.url %}
+  <a class="nav-previous" href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}">
+    ← {{ page.previous.title }}
+  </a>
+  {% endif %}
+  
+  {% if page.next.url %}
+  <a class="nav-next" href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}">
+    {{ page.next.title }} →
+  </a>
+  {% endif %}
+</nav>

@@ -1,1 +1,65 @@
-Hello World
+---
+layout: default
+---
+
+<div class="home">
+  <header class="home-header">
+    <h1>Welcome to {{ site.title }}</h1>
+    <p class="home-description">{{ site.description }}</p>
+  </header>
+
+  <div class="posts-list">
+    {% for post in site.posts %}
+      <article class="post-preview">
+        <header class="post-header">
+          <h2 class="post-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </h2>
+          
+          <div class="post-meta">
+            <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            {% if post.author %}
+              <span class="post-author">by {{ post.author }}</span>
+            {% endif %}
+            {% if post.categories %}
+              <span class="post-categories">
+                {% for category in post.categories %}
+                  <span class="category">{{ category }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </header>
+
+        <div class="post-excerpt">
+          {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 50 }}
+          {% else %}
+            {{ post.content | strip_html | truncatewords: 50 }}
+          {% endif %}
+        </div>
+
+        <footer class="post-footer">
+          <a href="{{ post.url | relative_url }}" class="read-more">
+            Read more →
+          </a>
+        </footer>
+      </article>
+    {% endfor %}
+    
+    {% if site.posts.size == 0 %}
+      <div class="no-posts">
+        <h2>Welcome to the Blog</h2>
+        <p>No posts yet, but we're working on bringing you great content about academic writing and research methods. Check back soon!</p>
+      </div>
+    {% endif %}
+  </div>
+
+  {% if site.posts.size > 0 %}
+    <div class="home-actions">
+      <a href="{{ '/archive/' | relative_url }}" class="archive-link">
+        View All Posts →
+      </a>
+    </div>
+  {% endif %}
+</div>

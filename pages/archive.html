@@ -1,0 +1,81 @@
+---
+layout: page
+title: Archive
+permalink: /archive/
+---
+
+<div class="archive">
+  <h1>Post Archive</h1>
+  
+  <p>Browse all posts organized by year. Use <kbd>Ctrl+F</kbd> (or <kbd>Cmd+F</kbd> on Mac) to search for specific topics.</p>
+  
+  <div class="archive-list">
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+      <div class="archive-year">
+        <h2 class="year-heading">{{ year.name }}</h2>
+        
+        <ul class="archive-posts">
+          {% for post in year.items %}
+            <li class="archive-post">
+              <span class="post-date">{{ post.date | date: "%b %d" }}</span>
+              <span class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+    
+    {% if site.posts.size == 0 %}
+      <div class="no-posts">
+        <p>No posts yet. Check back soon for new content!</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+// Add search functionality for archive
+document.addEventListener('DOMContentLoaded', function() {
+  // Create search input
+  const searchContainer = document.createElement('div');
+  searchContainer.className = 'archive-search';
+  searchContainer.innerHTML = `
+    <input type="text" id="archive-search" placeholder="Search posts..." style="
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 2rem;
+      border: 1px solid #404040;
+      border-radius: 0.5rem;
+      background-color: #2d2d2d;
+      color: #e0e0e0;
+      font-size: 1rem;
+    ">
+  `;
+  
+  const archiveList = document.querySelector('.archive-list');
+  archiveList.insertBefore(searchContainer, archiveList.firstChild);
+  
+  const searchInput = document.getElementById('archive-search');
+  const archivePosts = document.querySelectorAll('.archive-post');
+  
+  searchInput.addEventListener('input', function(e) {
+    const query = e.target.value.toLowerCase();
+    
+    archivePosts.forEach(post => {
+      const title = post.querySelector('.post-title a').textContent.toLowerCase();
+      const shouldShow = title.includes(query);
+      
+      post.style.display = shouldShow ? 'flex' : 'none';
+    });
+    
+    // Hide/show year headings based on visible posts
+    document.querySelectorAll('.archive-year').forEach(yearSection => {
+      const visiblePosts = yearSection.querySelectorAll('.archive-post[style="display: flex;"], .archive-post:not([style*="display: none"])');
+      yearSection.style.display = visiblePosts.length > 0 ? 'block' : 'none';
+    });
+  });
+});
+</script>

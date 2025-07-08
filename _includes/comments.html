@@ -1,0 +1,47 @@
+<div class="comments-section">
+  <h3>Comments</h3>
+  
+  <div class="comments-info">
+    <p>Comments are powered by GitHub Issues. 
+       <a href="https://github.com/{{ site.github.repository }}/issues" target="_blank" rel="noopener">
+         Join the discussion on GitHub
+       </a>
+    </p>
+  </div>
+  
+  <div id="comments-container" class="comments-container">
+    <div class="comments-loading">Loading comments...</div>
+  </div>
+  
+  <div class="comments-actions">
+    <a href="https://github.com/{{ site.github.repository }}/issues/new?title=Comment%20on%20{{ page.title | url_encode }}&body=Comment%20on%20{{ page.url | absolute_url | url_encode }}" 
+       target="_blank" 
+       rel="noopener"
+       class="comment-button">
+      Add Comment
+    </a>
+  </div>
+</div>
+
+<script>
+// GitHub Issues Comments Integration
+document.addEventListener('DOMContentLoaded', function() {
+  const commentsContainer = document.getElementById('comments-container');
+  const repository = '{{ site.github.repository }}';
+  const pageUrl = '{{ page.url | absolute_url }}';
+  
+  // Load comments from GitHub Issues
+  // This would need to be implemented based on a specific GitHub Issue for each post
+  // For now, we'll show a placeholder
+  
+  setTimeout(() => {
+    commentsContainer.innerHTML = `
+      <div class="comments-placeholder">
+        <p>Comments will be loaded from GitHub Issues.</p>
+        <p>Each blog post will have its own GitHub Issue for comments.</p>
+        <p><a href="https://github.com/${repository}/issues" target="_blank" rel="noopener">View all discussions</a></p>
+      </div>
+    `;
+  }, 1000);
+});
+</script>

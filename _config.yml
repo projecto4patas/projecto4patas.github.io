@@ -1,0 +1,94 @@
+# Site settings
+title: Projecto 4 Patas
+email: contact@projecto4patas.com
+description: >-
+  A blog about academic writing, research, and scholarly communication.
+  Sharing insights on writing processes, research methodologies, and academic life.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://projecto4patas.github.io" # the base hostname & protocol for your site
+github_username: projecto4patas
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Kramdown settings
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+# Pagination
+# paginate: 5
+# paginate_path: "/page:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Projecto 4 Patas"
+      show_comments: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Site navigation
+navigation:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Archive
+    url: /archive/
+  - title: Contact
+    url: /contact/
+
+# Social links
+social:
+  github: projecto4patas
+  email: contact@projecto4patas.com
+
+# GitHub Issues comments
+github:
+  repository: projecto4patas/projecto4patas.github.io
+  
+# Analytics (optional)
+google_analytics: # Add your GA tracking ID here
+
+# SEO settings
+logo: /assets/images/logo.png
+twitter:
+  username: projecto4patas
+  card: summary
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE
+  - .gitignore
