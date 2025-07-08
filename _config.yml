@@ -1,0 +1,49 @@
+title: "Projecto 4 Patas"
+description: "Academic research and papers on AI, AGI, and emerging technologies"
+baseurl: ""
+url: "https://projecto4patas.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Default values for posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+
+# Social links
+author:
+  name: "Projecto 4 Patas Research Collective"
+  email: "research@projecto4patas.org"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Timezone
+timezone: UTC
