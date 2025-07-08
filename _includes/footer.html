@@ -1,0 +1,32 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>{{ site.title }}</h4>
+                <p>{{ site.description }}</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/about' | relative_url }}">About</a></li>
+                    <li><a href="{{ '/archive' | relative_url }}">Archive</a></li>
+                    <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/projecto4patas">GitHub</a></li>
+                    <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

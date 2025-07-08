@@ -1,0 +1,135 @@
+// Site header
+.site-header {
+    background-color: $bg-secondary;
+    border-bottom: 1px solid $border-color;
+    padding: $spacing-md 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    .site-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .site-title {
+            font-family: $font-family-serif;
+            font-size: $font-size-xl;
+            font-weight: 600;
+            color: $text-primary;
+            text-decoration: none;
+            
+            &:hover {
+                color: $accent-color;
+            }
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: $spacing-lg;
+            
+            .nav-link {
+                color: $text-secondary;
+                font-weight: 500;
+                transition: color 0.2s ease;
+                
+                &:hover {
+                    color: $accent-color;
+                }
+                
+                &.active {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}
+
+// Main content
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: $spacing-xxl 0;
+}
+
+// Site footer
+.site-footer {
+    background-color: $bg-secondary;
+    border-top: 1px solid $border-color;
+    padding: $spacing-xxl 0 $spacing-md;
+    margin-top: $spacing-xxl;
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: $spacing-xl;
+        margin-bottom: $spacing-xl;
+        
+        .footer-section {
+            h4 {
+                color: $text-primary;
+                margin-bottom: $spacing-md;
+                font-size: $font-size-base;
+            }
+            
+            p {
+                color: $text-muted;
+                font-size: $font-size-sm;
+            }
+            
+            ul {
+                list-style: none;
+                margin-left: 0;
+                
+                li {
+                    margin-bottom: $spacing-xs;
+                    
+                    a {
+                        color: $text-muted;
+                        font-size: $font-size-sm;
+                        
+                        &:hover {
+                            color: $accent-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        padding-top: $spacing-md;
+        border-top: 1px solid $border-color;
+        
+        p {
+            color: $text-muted;
+            font-size: $font-size-sm;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Responsive design
+@media (max-width: $breakpoint-md) {
+    .site-header {
+        .site-nav {
+            flex-direction: column;
+            gap: $spacing-md;
+            
+            .nav-menu {
+                gap: $spacing-md;
+            }
+        }
+    }
+    
+    .main-content {
+        padding: $spacing-xl 0;
+    }
+    
+    .site-footer {
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: $spacing-lg;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+# Site settings
+title: "Projecto 4 Patas"
+description: "Academic insights on AI, technology, and the future of intelligence"
+baseurl: ""
+url: "https://projecto4patas.github.io"
+author: "Projecto 4 Patas"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Projecto 4 Patas"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# SEO settings
+twitter:
+  username: projecto4patas
+  card: summary_large_image
+
+social:
+  name: Projecto 4 Patas
+  links:
+    - https://github.com/projecto4patas

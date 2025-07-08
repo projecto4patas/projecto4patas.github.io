@@ -1,1 +1,115 @@
-Hello World
+---
+layout: default
+---
+
+<div class="home-page">
+    <section class="hero">
+        <div class="container">
+            <h1>{{ site.title }}</h1>
+            <p class="hero-description">{{ site.description }}</p>
+        </div>
+    </section>
+
+    <section class="latest-posts">
+        <div class="container">
+            <h2>Latest Posts</h2>
+            
+            <div class="post-list">
+                {% for post in site.posts limit: 5 %}
+                    <article class="post-item">
+                        <h3 class="post-item-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h3>
+                        
+                        <div class="post-item-meta">
+                            <time datetime="{{ post.date | date_to_xmlschema }}">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
+                            {% if post.author %}
+                                <span>by {{ post.author }}</span>
+                            {% endif %}
+                            {% if post.reading_time %}
+                                <span>{{ post.reading_time }} min read</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="post-item-excerpt">
+                            {% if post.description %}
+                                <p>{{ post.description }}</p>
+                            {% else %}
+                                {{ post.excerpt | strip_html | truncate: 200 }}
+                            {% endif %}
+                        </div>
+                        
+                        <a href="{{ post.url | relative_url }}" class="post-item-link">Read More →</a>
+                    </article>
+                {% endfor %}
+            </div>
+            
+            {% if site.posts.size > 5 %}
+                <div class="text-center">
+                    <a href="{{ '/archive' | relative_url }}" class="btn">View All Posts</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+<style>
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #e8e8e8;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #b8b8b8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.latest-posts {
+    margin-bottom: 3rem;
+}
+
+.latest-posts h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e8e8e8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #4a9eff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #3d8bdb;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
+</style>
