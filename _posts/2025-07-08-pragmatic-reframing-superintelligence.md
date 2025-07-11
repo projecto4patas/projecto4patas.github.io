@@ -4,14 +4,12 @@ title: "A Pragmatic Re-framing of Superintelligence: The Primacy of Agentic Capa
 date: 2025-07-08 10:00:00 +0000
 categories: [AI, AGI, Safety, Research]
 tags: [superintelligence, artificial-intelligence, ai-safety, cognitive-science, philosophy, technology]
-author: "Pseudonym¹, Collaborator²"
+author: "Projecto 4 Patas Collective"
 reading_time: 15
 excerpt: "A comprehensive examination of superintelligence discourse, challenging foundational assumptions about unbounded intelligence and proposing a pragmatic reframing toward agentic capability as the primary concern for AGI development and safety."
 ---
 
-**Authors:**
-- Pseudonym¹ - Anonymous AI Research Collective
-- Collaborator² - Independent Artist & Thinker
+**Author:** Projecto 4 Patas Collective
 
 ## Abstract
 
